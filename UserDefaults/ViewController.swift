@@ -21,10 +21,14 @@ class ViewController: UIViewController {
 
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         if sender.currentTitle=="Save" {
-            UserDefaults.standard.setValue(textField.text, forKey: "name")
+            UserDefaults.standard.set(textField.text, forKey: "name")
         }
         if sender.currentTitle=="Delete" {
-        
+            print("delete button pressed")
+            if (UserDefaults.standard.object(forKey: "name") as? String) != nil{
+                UserDefaults.standard.removeObject(forKey:"name")
+                print("we are here")
+            }
         }
     }
     
